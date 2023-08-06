@@ -82,15 +82,15 @@ def insert():
     ''')
     print("inserido com sucesso ")
     conn.commit()
-insert()
+
 
 
 def seach():
     conn = connectionDB()
     cursor = conn.cursor()
-    cursor.execute("select * from Course")
+    cursor.execute("select * from student")
     result = cursor.fetchall()
-    for linha in result:
-        print(result)
+    for lista in result:
+        print(lista)
 
 seach()
