@@ -5,9 +5,11 @@ import customtkinter as ctk
 
 
 def tela_cadastro(root):
-    tela_cadastro = tk.Toplevel(root)
+    tela_cadastro = ctk.CTkToplevel(root)
+
+    tela_cadastro.configure(fg_color="blue")
     tela_cadastro.title("Cadastro Genérico - Escola")
-    tela_cadastro.geometry("400x400")
+    tela_cadastro.geometry("400x600")
 
     abas = ttk.Notebook(tela_cadastro)
     abas.pack(fill="both", expand=True)
@@ -23,117 +25,120 @@ def tela_cadastro(root):
     abas.add(aba_aluno_turma, text="Cadastro de Aluno em Turma")
 
     # Cadastrar Pessoas
-    lbl_titulo_pessoas = tk.Label(aba_pessoas, text="Cadastro de Pessoas")
+    lbl_titulo_pessoas = ctk.CTkLabel(aba_pessoas, text="Cadastro de Pessoas", text_color='Black')
     lbl_titulo_pessoas.pack()
 
     # Implemente os campos para cadastrar pessoas
-    lbl_cpf = tk.Label(aba_pessoas, text="CPF:")
+    lbl_cpf = ctk.CTkLabel(aba_pessoas, text="CPF:", text_color='Black')
     lbl_cpf.pack()
-    entry_cpf = tk.Entry(aba_pessoas)
+    entry_cpf = ctk.CTkEntry(aba_pessoas)
     entry_cpf.pack()
 
-    lbl_nome = tk.Label(aba_pessoas, text="Nome:")
+    lbl_nome = ctk.CTkLabel(aba_pessoas, text="Nome:", text_color='Black')
     lbl_nome.pack()
-    entry_nome = tk.Entry(aba_pessoas)
+    entry_nome = ctk.CTkEntry(aba_pessoas)
     entry_nome.pack()
 
-    lbl_data_nascimento = tk.Label(aba_pessoas, text="Data de Nascimento:")
+    lbl_data_nascimento = ctk.CTkLabel(aba_pessoas, text="Data de Nascimento:", text_color='Black')
     lbl_data_nascimento.pack()
-    entry_data_nascimento = tk.Entry(aba_pessoas)
+    entry_data_nascimento = ctk.CTkEntry(aba_pessoas)
     entry_data_nascimento.pack()
 
-    lbl_nome_mae = tk.Label(aba_pessoas, text="Nome da Mãe:")
+    lbl_nome_mae = ctk.CTkLabel(aba_pessoas, text="Nome da Mãe:", text_color='Black')
     lbl_nome_mae.pack()
-    entry_nome_mae = tk.Entry(aba_pessoas)
+    entry_nome_mae = ctk.CTkEntry(aba_pessoas)
     entry_nome_mae.pack()
 
-    lbl_email = tk.Label(aba_pessoas, text="Email:")
+    lbl_email = ctk.CTkLabel(aba_pessoas, text="Email:", text_color='Black')
     lbl_email.pack()
-    entry_email = tk.Entry(aba_pessoas)
+    entry_email = ctk.CTkEntry(aba_pessoas)
     entry_email.pack()
 
-    lbl_telefone = tk.Label(aba_pessoas, text="Telefone:")
+    lbl_telefone = ctk.CTkLabel(aba_pessoas, text="Telefone:", text_color='Black')
     lbl_telefone.pack()
-    entry_telefone = tk.Entry(aba_pessoas)
+    entry_telefone = ctk.CTkEntry(aba_pessoas)
     entry_telefone.pack()
 
     # Botões de cadastro de aluno e professor
-    btn_cadastrar_aluno = tk.Button(
+    btn_cadastrar_aluno = ctk.CTkButton(
         aba_pessoas,
         text="Cadastrar Aluno")
     btn_cadastrar_aluno.pack(padx=10)
 
-    btn_cadastrar_professor = tk.Button(aba_pessoas, text="Cadastrar Professor")
-    btn_cadastrar_professor.pack(padx=10)
+    btn_cadastrar_professor = ctk.CTkButton(aba_pessoas, text="Cadastrar Professor", text_color='Black', command=lambda :register_teacher(entry_nome.get(), entry_cpf.get(), entry_data_nascimento(), entry_nome_mae(), entry_telefone(), entry_email()
+    ))
+    btn_cadastrar_professor.pack()
 
     # Cadastrar Cursos
-    lbl_titulo_cursos = tk.Label(aba_cursos, text="Cadastro de Cursos")
+    lbl_titulo_cursos = ctk.CTkLabel(aba_cursos, text="Cadastro de Cursos", text_color='Black')
     lbl_titulo_cursos.pack(pady=10)
 
     # Implemente os campos para cadastrar cursos
-    lbl_nome_curso = tk.Label(aba_cursos, text="Nome do Curso:")
+    lbl_nome_curso = ctk.CTkLabel(aba_cursos, text="Nome do Curso:", text_color='Black')
     lbl_nome_curso.pack()
-    entry_nome_curso = tk.Entry(aba_cursos)
+    entry_nome_curso = ctk.CTkEntry(aba_cursos)
     entry_nome_curso.pack()
 
-    lbl_data_inicio = tk.Label(aba_cursos, text="Data de Início:")
+    lbl_data_inicio = ctk.CTkLabel(aba_cursos, text="Data de Início:", text_color='Black')
     lbl_data_inicio.pack()
-    entry_data_inicio = tk.Entry(aba_cursos)
+    entry_data_inicio = ctk.CTkEntry(aba_cursos)
     entry_data_inicio.pack()
 
-    lbl_duracao = tk.Label(aba_cursos, text="Duração:")
+    lbl_duracao = ctk.CTkLabel(aba_cursos, text="Duração:", text_color='Black')
     lbl_duracao.pack()
-    entry_duracao = tk.Entry(aba_cursos)
+    entry_duracao = ctk.CTkEntry(aba_cursos)
     entry_duracao.pack()
 
-    lbl_turno = tk.Label(aba_cursos, text="Turno:")
+    lbl_turno = ctk.CTkLabel(aba_cursos, text="Turno:", text_color='Black')
     lbl_turno.pack()
-    entry_turno = tk.Entry(aba_cursos)
+    entry_turno = ctk.CTkEntry(aba_cursos)
     entry_turno.pack()
 
     # Botão de cadastro de curso
-    btn_cadastrar_curso = tk.Button(aba_cursos, text="Cadastrar Curso")
+    btn_cadastrar_curso = ctk.CTkButton(aba_cursos, text="Cadastrar Curso", text_color='Black')
     btn_cadastrar_curso.pack()
 
     # Cadastrar Turmas
-    lbl_titulo_turmas = tk.Label(aba_turmas, text="Cadastro de Turmas")
+    lbl_titulo_turmas = ctk.CTkLabel(aba_turmas, text="Cadastro de Turmas", text_color='Black')
     lbl_titulo_turmas.pack()
 
     # Implemente os campos para cadastrar turmas
-    lbl_nome_turma = tk.Label(aba_turmas, text="Nome do Curso:")
+    lbl_nome_turma = ctk.CTkLabel(aba_turmas, text="Nome do Curso:", text_color='Black')
     lbl_nome_turma.pack()
-    entry_nome_turma = tk.Entry(aba_turmas)
+    entry_nome_turma = ctk.CTkEntry(aba_turmas)
     entry_nome_turma.pack()
 
-    lbl_professor_turma = tk.Label(aba_turmas, text="CPF do professor:")
+    lbl_professor_turma = ctk.CTkLabel(aba_turmas, text="CPF do professor:", text_color='Black')
     lbl_professor_turma.pack()
-    entry_professor_turma = tk.Entry(aba_turmas)
+    entry_professor_turma = ctk.CTkEntry(aba_turmas)
     entry_professor_turma.pack()
 
     # Botão de cadastro de turma
-    btn_cadastrar_turma = tk.Button(aba_turmas, text="Cadastrar Turma")
+    btn_cadastrar_turma = ctk.CTkButton(aba_turmas, text="Cadastrar Turma", text_color='Black')
     btn_cadastrar_turma.pack()
 
-    lbl_titulo_aluno_turma = tk.Label(aba_aluno_turma, text="Cadastro de Aluno em Turma")
+    lbl_titulo_aluno_turma = ctk.CTkLabel(aba_aluno_turma, text="Cadastro de Aluno em Turma", text_color='Black')
     lbl_titulo_aluno_turma.pack()
 
-    lbl_aluno_turma = tk.Label(aba_aluno_turma, text="Escolha o Aluno e a Turma:")
+    lbl_aluno_turma = ctk.CTkLabel(aba_aluno_turma, text="Escolha o Aluno e a Turma:", text_color='Black')
     lbl_aluno_turma.pack()
 
     # Implemente os campos para cadastrar aluno em turma
-    lbl_aluno = tk.Label(aba_aluno_turma, text="Aluno:")
+    lbl_aluno = ctk.CTkLabel(aba_aluno_turma, text="Aluno:", text_color='Black')
     lbl_aluno.pack()
-    entry_aluno = tk.Entry(aba_aluno_turma)
+    entry_aluno = ctk.CTkEntry(aba_aluno_turma)
     entry_aluno.pack()
 
-    lbl_turma = tk.Label(aba_aluno_turma, text="Turma:")
+    lbl_turma = ctk.CTkLabel(aba_aluno_turma, text="Turma:", text_color='Black')
     lbl_turma.pack()
-    entry_turma = tk.Entry(aba_aluno_turma)
+    entry_turma = ctk.CTkEntry(aba_aluno_turma)
     entry_turma.pack()
 
     # Botão de cadastro de aluno em turma
-    btn_cadastrar_aluno_turma = tk.Button(
-        aba_aluno_turma, text="Cadastrar Aluno em Turma")
+    btn_cadastrar_aluno_turma = ctk.CTkButton(
+        aba_aluno_turma, text="Cadastrar Aluno em Turma", text_color='Black', command=lambda:register_student(
+            entry_nome.get(), entry_cpf.get(), entry_data_nascimento(), entry_nome_mae(), entry_telefone(), entry_email()
+        ))
 
     btn_cadastrar_aluno_turma.pack()
 
